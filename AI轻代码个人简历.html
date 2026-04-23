@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李俊泓 - 个人简历</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 头部区域 */
+        .header {
+            background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: moveDots 20s linear infinite;
+        }
+        
+        @keyframes moveDots {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .name {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95em;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .contact-item i {
+            font-size: 1.1em;
+        }
+        
+        /* 内容区域 */
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        .section:nth-child(6) { animation-delay: 0.6s; }
+        .section:nth-child(7) { animation-delay: 0.7s; }
+        .section:nth-child(8) { animation-delay: 0.8s; }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #1e90ff;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(to right, #1e90ff, #00bfff) 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title i {
+            background: linear-gradient(135deg, #1e90ff, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.2em;
+        }
+        
+        /* 教育背景 */
+        .edu-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+            padding: 18px 22px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border-left: 4px solid #1e90ff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .edu-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(30, 144, 255, 0.2);
+        }
+        
+        .edu-main {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .edu-time {
+            color: #1e90ff;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        /* 工作经历 */
+        .work-item {
+            background: white;
+            border: 2px solid #e8e8e8;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .work-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #1e90ff, #00bfff);
+            transform: scaleY(0);
+            transition: transform 0.3s;
+            transform-origin: top;
+        }
+        
+        .work-item:hover {
+            border-color: #1e90ff;
+            box-shadow: 0 10px 40px rgba(30, 144, 255, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .work-item:hover::before {
+            transform: scaleY(1);
+        }
+        
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .work-title {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.05em;
+        }
+        
+        .work-time {
+            color: #1e90ff;
+            font-weight: 600;
+            font-size: 0.9em;
+            background: rgba(30, 144, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        .work-subtitle {
+            color: #1e90ff;
+            font-weight: 600;
+            margin: 12px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .work-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .work-list li {
+            padding: 6px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.7;
+        }
+        
+        .work-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #1e90ff;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(30, 144, 255, 0.2) 0%, rgba(0, 191, 255, 0.2) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        /* 项目经历 */
+        .project-item {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .project-item::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #1e90ff, #00bfff);
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .project-item:hover::after {
+            opacity: 1;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(30, 144, 255, 0.2);
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .project-name {
+            font-weight: 700;
+            color: #333;
+            font-size: 1.05em;
+        }
+        
+        .project-bg {
+            background: rgba(30, 144, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 12px 0;
+            border-left: 3px solid #1e90ff;
+        }
+        
+        .project-section-title {
+            color: #00bfff;
+            font-weight: 700;
+            margin: 15px 0 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* 自我评价 */
+        .eval-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .eval-card {
+            background: white;
+            border: 2px solid #e8e8e8;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .eval-card:hover {
+            border-color: #1e90ff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.15);
+        }
+        
+        .eval-title {
+            font-weight: 700;
+            color: #1e90ff;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .eval-text {
+            line-height: 1.7;
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        /* 技能标签 */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, #1e90ff, #00bfff);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 0 5px 20px rgba(30, 144, 255, 0.4);
+        }
+        
+        /* 页脚 */
+        .footer {
+            background: linear-gradient(135deg, #1e90ff 0%, #00bfff 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2em;
+            }
+            .content {
+                padding: 25px;
+            }
+            .work-header, .project-header {
+                flex-direction: column;
+            }
+        }
+        
+        /* 滚动条美化 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #1e90ff, #00bfff);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1 class="name">李俊泓</h1>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>176-0892-4979</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>2422507594@qq.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-weixin"></i>
+                    <span>WeChat: LeeChunWang0514</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 内容 -->
+        <div class="content">
+            <!-- 教育背景 -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> 教育背景</h2>
+                <div class="edu-item">
+                    <div class="edu-main">香港科技大学广州 - 科技与政策（人工智能方向）- 硕士</div>
+                    <div class="edu-time">2025年09月 - 2027年06月</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-main">香港科技大学 - 公共政策 - 硕士（首届双校区交换生项目）</div>
+                    <div class="edu-time">2026年02月 - 2026年06月</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-main">中国民航大学 - 自动化 - 本科</div>
+                    <div class="edu-time">2018年09月 - 2022年06月</div>
+                </div>
+            </div>
+            
+            <!-- 英语水平 -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-language"></i> 英语水平</h2>
+                <div class="skill-tags">
+                    <span class="skill-tag">IELTS 雅思 7.0</span>
+                    <span class="skill-tag">TOEIC 托业 900</span>
+                    <span class="skill-tag">CET-6 613</span>
+                </div>
+            </div>
+            
+            <!-- 工作经历 -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> 工作经历</h2>
+                
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title">广州锦翰网络科技有限公司 | 海外营销运营经理（国际拉美市场）</div>
+                        <div class="work-time">2024年11月 - 2025年03月</div>
+                    </div>
+                    <div class="work-subtitle"><i class="fas fa-star"></i> 主要工作及成果</div>
+                    <ul class="work-list">
+                        <li><span class="highlight">核心业务洞察：</span>负责墨西哥市场Top级客户的画像分析与生命周期管理。通过对业务链条的深度拆解，从呆滞项目中识别潜在增长点，并统筹推进开发8个新客户，获取价值200万的商机线索。</li>
+                        <li><span class="highlight">流程优化统筹：</span>主导设计资源动态调配方案，将原本碎片化的供应流程转化为标准化的预测模型，跨部门协调采购与技术团队完成方案落地，使业务资源分配效率提升40%。</li>
+                        <li><span class="highlight">风险管控闭环：</span>定义并输出《标准化客诉及风险预判SOP》，通过体系化的纠纷处理方案设计（如服务抵扣包），在解决复杂纠纷的同时将赔偿成本降低90%，重建客户信任链接。</li>
+                    </ul>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title">广州金升阳电源科技有限公司 | 海外营销运营经理（国际俄罗斯市场）</div>
+                        <div class="work-time">2023年04月 - 2024年06月</div>
+                    </div>
+                    <div class="work-subtitle"><i class="fas fa-star"></i> 主要工作及成果</div>
+                    <ul class="work-list">
+                        <li><span class="highlight">跨端业务协同：</span>负责俄罗斯区域的行业方案定制。作为前线业务与后端研发的沟通桥梁，负责收集一线极端环境（极寒/高腐蚀）下的客户反馈，跨部门推动产品规格的优化迭代，支撑了经销商全年991W（增长70%）的业绩达成。</li>
+                        <li><span class="highlight">动态风险管理：</span>利用数据分析思维，为俄罗斯Top 3经销商设计并落地业务动态监控机制。通过数据看板实时追踪项目进展与潜在风险，成功干预并挽回了15个潜在流失项目。</li>
+                        <li><span class="highlight">业务赋能宣讲：</span>针对工控、电力电子等垂直领域，主导设计并开展了5场业务赋能宣讲及高层方案文档输出，将单一模块转化为综合性解决框架，有效提升了前端沟通效率，线索转化率提升30%。</li>
+                    </ul>
+                </div>
+                
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title">成都鼎桥通信技术有限公司 | 海外营销运营经理（国际亚太市场）</div>
+                        <div class="work-time">2022年07月 - 2023年03月</div>
+                    </div>
+                    <div class="work-subtitle"><i class="fas fa-star"></i> 主要工作及成果</div>
+                    <ul class="work-list">
+                        <li><span class="highlight">核心需求统筹：</span>深度参与华为菲律宾政府级终端集采项目。负责对接并分析G端客户的复杂安全需求，跨部门拉通资源参与制定定制化解决方案，确保项目总体规格与客户核心诉求精准匹配。</li>
+                        <li><span class="highlight">交付链路协同：</span>负责打通前端研发、代工厂商与海外交付侧的协作链路。主持项目全周期的进度拉通与批量生产交付的风险控制环节，成功排除潜在瓶颈，确保了6万台设备的大规模交付零事故落地。</li>
+                        <li><span class="highlight">流程标准建设：</span>针对非专业用户群体，牵头制定了《终端交付与操作规范准则》，推动复杂执行层面的去碎片化，该准则后续被复用至公司其他海外行业定制项目，实现了内部经验资产化与规模化推广。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 重点项目经历 -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-project-diagram"></i> 重点项目经历</h2>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-name">菲律宾政府教育平板定制化项目 | 项目主要负责人</div>
+                        <div class="work-time">2022年10月 - 2023年03月</div>
+                    </div>
+                    <div class="project-bg">
+                        <strong>项目背景：</strong>6万台量级的教育平板项目，面临硬件性能有限、网络环境差、师生技术素养参差不齐的多重挑战。
+                    </div>
+                    <div class="project-section-title"><i class="fas fa-tasks"></i> 主要工作</div>
+                    <ul class="work-list">
+                        <li><span class="highlight">资源统筹优化：</span>主动发起系统资源优化计划，统筹技术侧剔除50%的冗余后台进程，为核心教育软件提升20%的运行空间，保障了在硬件受限情况下的交互流畅度。</li>
+                        <li><span class="highlight">用户体验提效：</span>针对学生用户，主导设计了一键教学模式UI。通过视觉符号（而非文字说明）引导用户完成首屏激活与资源同步，将首批终端激活耗时从均值10分钟降至2分钟。</li>
+                        <li><span class="highlight">应急机制搭建：</span>针对海外恶劣的网络交付环境，跨部门推动研发侧实现容错与增量同步机制，前置性地解决了大规模资源下载导致的系统假死风险。</li>
+                    </ul>
+                    <div class="project-section-title"><i class="fas fa-trophy"></i> 项目成果</div>
+                    <ul class="work-list">
+                        <li>成功分三个周期完成全量<span class="highlight">60,000台</span>终端的滚动交付，各阶段到货验收合格率为<span class="highlight">100%</span>。</li>
+                        <li>产品投入使用后，因操作复杂产生的技术支持需求同比降低<span class="highlight">45%</span>。</li>
+                        <li>沉淀《教育行业解决方案设计指南》，包含需求挖掘、方案演示、交付管控全流程。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 学生干部经历 -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-users"></i> 学生干部经历</h2>
+                
+                <div class="work-item">
+                    <div class="work-header">
+                        <div class="work-title">香港科技大学（广州）研究生会 | 公共关系部核心成员</div>
+                        <div class="work-time">2025年10月 - 2027年06月</div>
+                    </div>
+                    <div class="work-subtitle"><i class="fas fa-user-tie"></i> 岗位职责</div>
+                    <ul class="work-list">
+                        <li><span class="highlight">外部资源拓展：</span>负责建立并维护与校外企业、其他高校及社会组织的合作网络。通过主导对外公关洽谈与合作框架策划，持续为校内引流外部资源，系统性提升组织的外部品牌形象与社会影响力。</li>
+                        <li><span class="highlight">跨部协作统筹：</span>作为组织内部的核心沟通枢纽，拉通研究生会多部门资源。深度参与校级大型公共活动的全生命周期管理，通过制定标准化的协作流程打破部门壁垒，确保各类复杂项目的跨部门高效协同与落地。</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-name">"青力青为·守护南沙"志愿服务与团队建设活动 | 项目策划负责人</div>
+                        <div class="work-time">2026年03月</div>
+                    </div>
+                    <div class="project-bg">
+                        <strong>项目背景：</strong>结合第63个学雷锋纪念日，跨部门策划并落地百人规模的户外环保与公众宣教活动，同时承载内部部门团建职能。
+                    </div>
+                    <div class="project-section-title"><i class="fas fa-tasks"></i> 主要工作与心得</div>
+                    <ul class="work-list">
+                        <li><span class="highlight">活动全盘统筹：</span>牵头策划跨部门大型户外志愿项目。全面统筹车辆调度、后勤物资保障（餐饮/志愿工具）及安全预警（天气/着装规范）等标准化SOP的制定，保障活动高效落地。</li>
+                        <li><span class="highlight">组织文化建设：</span>创新性地将志愿服务与内部各部门有机结合。主导设计并开展团队复盘与分享环节，有效打破组织成员间的沟通壁垒，深化团队凝聚力与跨部门协作意识。</li>
+                        <li><span class="highlight">组织信任构建：</span>非正式场景（如户外公益体验）是打破组织内沟通壁垒的破局点。脱离常规的校园学习环境后，团队成员间的信任链接得以快速重塑，这种基于共情与共同目标产生的组织凝聚力，能够转化为后续推动复杂项目落地的强劲内驱力。</li>
+                    </ul>
+                </div>
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <div class="project-name">SOCH Dialogue 官方播客全流程AI赋能项目 | AI工作流总负责人</div>
+                        <div class="work-time">2026年03月 - 2026年06月</div>
+                    </div>
+                    <div class="project-bg">
+                        <strong>项目背景：</strong>面向香港科技大学（广州）社会枢纽学院招生季筹备"SOCH Dialogue"官方播客栏目的首发落地，旨在通过学生主持人的真实视角打破跨校区及就读体验的信息差。针对传统播客制作周期长、多渠道图文转化效率低等痛点，主导引入多模型协作的AI工作流，全面赋能从内容策划到审核宣发的全生命周期。
+                    </div>
+                    <div class="project-section-title"><i class="fas fa-tasks"></i> 主要工作</div>
+                    <ul class="work-list">
+                        <li><span class="highlight">AI辅助策划：</span>主导"双校区交换"与"重返校园"选题共创。利用AI工具Gemini进行深度痛点挖掘与主题策略分析，精准提取潜在生源焦虑，输出共情式访谈框架以替代刻板宣讲。</li>
+                        <li><span class="highlight">音频转译润色：</span>针对单期约40分钟的线下聊天录音，调用AI工具豆包实现高精度的语音转写与长文本润色，并配合Obsidian完成长文本的结构化校对与精华重组。</li>
+                        <li><span class="highlight">自动化工作流：</span>深度应用AI代码工具CodeBuddy部署专属AI提示词流，并编写自动化脚本将校对稿件一键提交至枢纽学院导师端，大幅降低审核沟通成本，彻底打通跨部门协作瓶颈。</li>
+                        <li><span class="highlight">搭建数字资产：</span>利用Obsidian搭建项目专属知识库。系统沉淀各大媒体平台（如小宇宙、B站等）的分发SOP及模块化AI提示词库，确保音频与切片等多模态内容跨团队协作的标准化。</li>
+                    </ul>
+                    <div class="project-section-title"><i class="fas fa-trophy"></i> 项目成果</div>
+                    <ul class="work-list">
+                        <li><span class="highlight">制作效能提效：</span>打通多模型AI工具协作链路，将单期播客后期处理与图文分发效率大幅提升80%，单期制作周期从预估的14天压缩至实际3天。</li>
+                        <li><span class="highlight">赋能招生引流：</span>高质量内容有效承接招生季口碑答疑功能，用真实同辈视角打破信息差，切实提升社会枢纽品牌亲和力与潜在生源转化意向。</li>
+                        <li><span class="highlight">沉淀标准体系：</span>完整跑通业务闭环，牵头制定并沉淀《播客AI工作流与内容策划SOP》，为后续校园栏目的常态化、低成本敏捷运营奠定坚实基础。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 自我评价 -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-user"></i> 自我评价</h2>
+                <div class="eval-grid">
+                    <div class="eval-card">
+                        <div class="eval-title"><i class="fas fa-chart-line"></i> 营销职能转型</div>
+                        <div class="eval-text">拥有3年多领域复杂市场业务实战与大型项目统筹经验，深耕前端营销与全生命周期运营。现锚定营销职能方向垂直发展，具备深厚的复杂业务痛点拆解、多方资源协同及标准化流程搭建能力，能迅速将前线业务视角转化为驱动组织效能提升的管理抓手。</div>
+                    </div>
+                    <div class="eval-card">
+                        <div class="eval-title"><i class="fas fa-robot"></i> AI赋能沉淀</div>
+                        <div class="eval-text">具备前沿的技术敏锐度与极强的系统性学习能力。在日常与复杂项目中深度运用AI工具辅助统筹决策与效率优化；已熟练建立并持续运营基于Obsidian的个人结构化学习资产库，擅长将碎片化信息提炼为可规模化复用的方法论。</div>
+                    </div>
+                    <div class="eval-card">
+                        <div class="eval-title"><i class="fas fa-globe"></i> 英粤双语沟通</div>
+                        <div class="eval-text">英语（雅思7.0）与粤语均可作为日常高频工作与商务沟通语言。具备极佳的人际感知力与跨文化协作能力，能够无缝链接多元背景的业务团队，确保管理策略与业务诉求的精准传达与落地。</div>
+                    </div>
+                    <div class="eval-card">
+                        <div class="eval-title"><i class="fas fa-calendar-check"></i> 全职实习保障</div>
+                        <div class="eval-text">拥有充裕的时间规划，可保证连续工作6个月以上，每周至少出勤4天的实习时间。具有强烈的意愿在营销管理及HRBP领域长期发展，能够以接近全职的状态深度参与核心项目落地，为团队提供持续、稳定且深度的业务支持。</div>
+                    </div>
+                    <div class="eval-card">
+                        <div class="eval-title"><i class="fas fa-plane-departure"></i> 业务驻场统筹</div>
+                        <div class="eval-text">具备极强的抗压能力，能够完全适应业务发展带来的不定期项目出差需求。乐于深入一线业务现场，能够快速融入异地团队，在动态复杂的环境下统筹落地跨区域核心项目，为前线业务提供坚实的支持与管理赋能。</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 个人AI实战应用 -->
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-microchip"></i> 个人AI实战应用</h2>
+                <div class="skill-tags">
+                    <span class="skill-tag">多模型协同</span>
+                    <span class="skill-tag">全链路调度</span>
+                    <span class="skill-tag">轻代码实践</span>
+                    <span class="skill-tag">资产库建设</span>
+                </div>
+                <div style="margin-top: 15px; line-height: 1.8; color: #555;">
+                    <p><i class="fas fa-check-circle" style="color: #1e90ff;"></i> 具备跨模型（如 Gemini、豆包等）比对与整合的实战经验，擅长打破单点工具局限，实现不同大模型间的优势互补。</p>
+                    <p><i class="fas fa-check-circle" style="color: #1e90ff;"></i> 擅长构建涵盖"需求洞察-内容生成-自动流转"的完整AI工作流，推动业务高效闭环，实现整体工作效能提升。</p>
+                    <p><i class="fas fa-check-circle" style="color: #1e90ff;"></i> 拥有扎实的轻代码落地能力，熟练运用CodeBuddy等工具编写自动化脚本并部署专属提示词流（Prompt Flow）。</p>
+                    <p><i class="fas fa-check-circle" style="color: #1e90ff;"></i> 依托 Obsidian 建立并持续运营高度结构化的个人数字资产库，擅长将碎片化经验提炼为模块化的 Prompt 库与可规模化复用的 SOP。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 页脚 -->
+        <div class="footer">
+            <i class="fas fa-heart" style="color: #ff6b6b;"></i> 期待与您的合作机会
+        </div>
+    </div>
+</body>
+</html>
